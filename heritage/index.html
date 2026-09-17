@@ -50,12 +50,15 @@
   }
   header.nav .wrap{display:flex; align-items:center; justify-content:space-between;}
   header.nav.solid{background:rgba(250,247,240,0.96); backdrop-filter:blur(8px); box-shadow:var(--shadow-sm); padding:13px 0;}
-  .logo{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:600; font-size:21px; color:var(--ink); text-decoration:none; letter-spacing:.2px;}
-  .logo span{color:var(--gold);}
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:600; font-size:21px; color:#fff; text-decoration:none; letter-spacing:.2px; transition:color .3s ease;}
+  header.nav.solid .logo{color:var(--ink);}
+  .logo span{color:var(--gold-light);}
+  header.nav.solid .logo span{color:var(--gold);}
   .logo .mark{width:30px; height:30px; flex-shrink:0;}
   nav.links{display:none; gap:32px; font-size:15px; font-weight:500;}
-  nav.links a{text-decoration:none; opacity:.85; transition:opacity .2s;}
+  nav.links a{text-decoration:none; opacity:.9; transition:opacity .2s, color .3s ease; color:#fff;}
   nav.links a:hover{opacity:1;}
+  header.nav.solid nav.links a{color:var(--ink); opacity:.85;}
   @media(min-width:900px){nav.links{display:flex;}}
   .btn{
     display:inline-flex; align-items:center; gap:8px; justify-content:center;
