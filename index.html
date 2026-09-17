@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umza International Farms — Concept Directions</title>
+<meta name="description" content="Three hosted homepage concept directions for the Umza International Farms digital platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --gold:#B8862B; --ink:#1C1A16; --paper:#FAF7F0; --border:#E4DDCB; }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6;}
+  h1,h2,.serif{font-family:'Fraunces',serif;}
+  .wrap{max-width:1100px; margin:0 auto; padding:80px 24px 100px;}
+  header{text-align:center; margin-bottom:64px;}
+  .eyebrow{font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; color:var(--gold); margin-bottom:16px;}
+  h1{font-size:clamp(30px,5vw,48px); font-weight:600; margin:0 0 18px; line-height:1.15;}
+  header p{max-width:620px; margin:0 auto; opacity:.75; font-size:16.5px;}
+  .grid{display:grid; grid-template-columns:1fr; gap:28px;}
+  @media(min-width:860px){.grid{grid-template-columns:repeat(3,1fr);}}
+  .card{background:#fff; border:1px solid var(--border); border-radius:14px; overflow:hidden; text-decoration:none; color:inherit; display:block; transition:transform .25s ease, box-shadow .25s ease;}
+  .card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(28,26,22,.12);}
+  .thumb{height:170px; background-size:cover; background-position:center;}
+  .t1{background-image:linear-gradient(160deg, rgba(184,134,43,.35), rgba(47,75,60,.55)), url('https://images.pexels.com/photos/6130917/pexels-photo-6130917.jpeg?auto=compress&cs=tinysrgb&w=800');}
+  .t2{background-image:linear-gradient(160deg, rgba(16,19,18,.55), rgba(201,150,46,.35)), url('https://images.pexels.com/photos/18920790/pexels-photo-18920790.jpeg?auto=compress&cs=tinysrgb&w=800');}
+  .t3{background-image:linear-gradient(160deg, rgba(233,118,47,.35), rgba(63,145,66,.45)), url('https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=800');}
+  .body{padding:24px;}
+  .num{display:inline-block; font-size:12px; font-weight:700; color:var(--gold); letter-spacing:.5px; text-transform:uppercase; margin-bottom:8px;}
+  .card h3{margin:0 0 10px; font-size:20px;}
+  .card p{margin:0; font-size:14px; opacity:.7;}
+  .view{display:inline-block; margin-top:16px; font-weight:600; font-size:14px;}
+  .view::after{content:'→'; margin-left:6px;}
+  footer{text-align:center; margin-top:60px; font-size:13px; opacity:.55;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Design Concepts — Client Review</div>
+    <h1 class="serif">Umza International Farms — three directions</h1>
+    <p>Same real content, same information architecture — three distinct visual directions. Open each one on your phone first. Pick a direction (or a hybrid of two) and it becomes the v1 build's design system.</p>
+  </header>
+  <div class="grid">
+    <a class="card" href="./heritage/">
+      <div class="thumb t1"></div>
+      <div class="body">
+        <span class="num">Concept 1</span>
+        <h3 class="serif">Heritage &amp; Harvest</h3>
+        <p>Warm, editorial, serif-forward. Leans into 20+ years of history and the outgrower story.</p>
+        <span class="view">View concept</span>
+      </div>
+    </a>
+    <a class="card" href="./industrial/">
+      <div class="thumb t2"></div>
+      <div class="body">
+        <span class="num">Concept 2</span>
+        <h3 class="serif">Industrial Scale</h3>
+        <p>Bolder, grid-driven, numbers-forward. Leans into 200,000 MT capacity and manufacturing infrastructure.</p>
+        <span class="view">View concept</span>
+      </div>
+    </a>
+    <a class="card" href="./modern/">
+      <div class="thumb t3"></div>
+      <div class="body">
+        <span class="num">Concept 3</span>
+        <h3 class="serif">Modern Consumer-Facing</h3>
+        <p>Cleaner, product-photography-forward, brighter. Leans into the four retail rice brands.</p>
+        <span class="view">View concept</span>
+      </div>
+    </a>
+  </div>
+  <footer>Design prototypes for client review — not the live production site. See docs/16-demo-strategy.md for how to evaluate each.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umza International Farms — Industrial Scale Concept</title>
+<meta name="description" content="Design concept for Umza International Farms — premium agribusiness website concept, Industrial Scale direction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#C9962E;
+    --ink:#101312;
+    --paper:#F4F2EC;
+    --charcoal:#1B1F1D;
+    --steel:#54605B;
+    --line:#DAD6C9;
+    --surface:#FFFFFF;
+    --shadow-md: 0 12px 32px rgba(16,19,18,0.16);
+    --max:1360px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.disp{font-family:'Archivo',sans-serif; text-transform:none; letter-spacing:-0.02em;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  @media(min-width:768px){.wrap{padding:0 48px;}}
+
+  header.nav{position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 0; transition:.3s;}
+  header.nav .wrap{display:flex; align-items:center; justify-content:space-between;}
+  header.nav.solid{background:var(--charcoal); box-shadow:var(--shadow-md); padding:14px 0;}
+  .logo{font-family:'Archivo',sans-serif; font-weight:800; font-size:20px; color:#fff; text-decoration:none; text-transform:uppercase; letter-spacing:.5px;}
+  .logo em{font-style:normal; color:var(--gold);}
+  nav.links{display:none; gap:30px; font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.4px;}
+  nav.links a{text-decoration:none; color:rgba(255,255,255,.8);}
+  nav.links a:hover{color:#fff;}
+  @media(min-width:900px){nav.links{display:flex;}}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; font-weight:700; font-size:13.5px; text-transform:uppercase; letter-spacing:.5px; text-decoration:none; cursor:pointer; border:2px solid transparent; transition:.15s; font-family:'Inter',sans-serif;}
+  .btn-primary{background:var(--gold); color:var(--charcoal);}
+  .btn-primary:hover{background:#e0ab3d;}
+  .btn-outline{background:transparent; border-color:rgba(255,255,255,.4); color:#fff;}
+  .btn-outline:hover{border-color:#fff;}
+  .btn-dark{background:var(--charcoal); color:#fff; border-color:var(--charcoal);}
+  .btn-text{background:none; border:none; padding:0; font-weight:700; text-transform:uppercase; font-size:13px; letter-spacing:.4px; color:var(--ink);}
+  .btn-text::after{content:'→'; margin-left:8px;}
+
+  .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; background:linear-gradient(180deg, rgba(16,19,18,.25), rgba(16,19,18,.85)), url('https://images.pexels.com/photos/18920790/pexels-photo-18920790.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover; color:#fff;}
+  .hero .wrap{padding-bottom:90px; padding-top:160px;}
+  .hero-grid{display:grid; grid-template-columns:1fr; gap:40px;}
+  @media(min-width:900px){.hero-grid{grid-template-columns:2fr 1fr; align-items:end;}}
+  .hero-eyebrow{display:inline-flex; align-items:center; gap:10px; font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold); margin-bottom:20px; opacity:0;}
+  .hero-eyebrow .dot{width:7px; height:7px; background:var(--gold); border-radius:50%;}
+  .hero h1{font-size:clamp(36px,6.4vw,72px); font-weight:800; line-height:1.02; margin:0 0 22px; opacity:0;}
+  .hero p.sub{font-size:clamp(15px,1.6vw,18px); color:rgba(255,255,255,.85); max-width:480px; margin:0; opacity:0;}
+  .hero-side{opacity:0;}
+  .hero-side .actions{display:flex; flex-direction:column; gap:14px; align-items:flex-start;}
+  .fade-up{animation:fadeUp .9s ease forwards;}
+  .d1{animation-delay:.1s;} .d2{animation-delay:.28s;} .d3{animation-delay:.46s;} .d4{animation-delay:.6s;}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+
+  .marquee{background:var(--charcoal); color:#fff; overflow:hidden; padding:14px 0; white-space:nowrap;}
+  .marquee-track{display:inline-block; padding-left:100%; animation:marquee 26s linear infinite;}
+  .marquee span{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-right:60px; color:rgba(255,255,255,.75);}
+  .marquee span b{color:var(--gold);}
+  @keyframes marquee{from{transform:translateX(0);} to{transform:translateX(-100%);}}
+
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal-stagger > *{opacity:0; transform:translateY(22px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal-stagger.in > *{opacity:1; transform:translateY(0);}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:0s;} .reveal-stagger.in > *:nth-child(2){transition-delay:.08s;}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.16s;} .reveal-stagger.in > *:nth-child(4){transition-delay:.24s;}
+  .reveal-stagger.in > *:nth-child(5){transition-delay:.32s;} .reveal-stagger.in > *:nth-child(6){transition-delay:.4s;}
+
+  section{padding:100px 0;}
+  .eyebrow{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold); margin:0 0 16px;}
+  .section-head{max-width:680px; margin-bottom:60px;}
+  .section-head h2{font-size:clamp(28px,4.2vw,46px); font-weight:800; margin:0 0 16px; line-height:1.08;}
+  .section-head p{font-size:16.5px; color:var(--steel); margin:0;}
+
+  .stat-grid{display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line);}
+  @media(min-width:768px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-cell{padding:40px 28px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .stat-cell:nth-child(2n){border-right:none;}
+  @media(min-width:768px){.stat-cell{border-bottom:none;} .stat-cell:nth-child(2n){border-right:1px solid var(--line);} .stat-cell:last-child{border-right:none;}}
+  .stat-num{font-family:'Archivo',sans-serif; font-size:clamp(32px,4.4vw,48px); font-weight:800; line-height:1;}
+  .stat-label{font-size:13px; color:var(--steel); margin-top:10px; text-transform:uppercase; letter-spacing:.4px;}
+
+  .biz-grid{display:grid; grid-template-columns:1fr; gap:2px; background:var(--line);}
+  @media(min-width:860px){.biz-grid{grid-template-columns:1fr 1fr;}}
+  .biz-card{background:var(--surface); position:relative;}
+  .biz-card img{height:280px; width:100%; object-fit:cover; filter:grayscale(15%);}
+  .biz-card .num{position:absolute; top:24px; left:24px; background:var(--charcoal); color:var(--gold); font-family:'Archivo',sans-serif; font-weight:800; font-size:14px; padding:6px 12px;}
+  .biz-card .body{padding:32px;}
+  .biz-card h3{font-size:24px; margin:0 0 12px; font-weight:800;}
+  .biz-card p{color:var(--steel); margin:0 0 18px; font-size:14.5px;}
+
+  .prod-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line);}
+  @media(min-width:700px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
+  .prod-card{background:var(--surface); transition:background .2s;}
+  .prod-card:hover{background:var(--charcoal); color:#fff;}
+  .prod-card .imgwrap{height:190px; overflow:hidden;}
+  .prod-card img{height:100%; width:100%; object-fit:cover; transition:transform .4s ease; filter:grayscale(20%);}
+  .prod-card:hover img{transform:scale(1.05); filter:grayscale(0%);}
+  .prod-card .pbody{padding:22px;}
+  .prod-cat{font-size:11px; text-transform:uppercase; letter-spacing:.8px; font-weight:700; color:var(--gold);}
+  .prod-card h4{font-size:18px; margin:10px 0 6px; font-weight:800;}
+  .prod-card p{font-size:13px; color:var(--steel); margin:0;}
+  .prod-card:hover p{color:rgba(255,255,255,.7);}
+
+  .outgrower{background:var(--charcoal); color:#fff;}
+  .outgrower .grid{display:grid; grid-template-columns:1fr; gap:50px; align-items:center;}
+  @media(min-width:900px){.outgrower .grid{grid-template-columns:1fr 1fr;}}
+  .outgrower h2{color:#fff;}
+  .outgrower p{color:rgba(255,255,255,.75);}
+  .outgrower img{filter:grayscale(10%);}
+  .og-stats{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(255,255,255,.15); margin-top:32px;}
+  .og-stat{padding:20px 16px 0; border-right:1px solid rgba(255,255,255,.15);}
+  .og-stat:last-child{border-right:none;}
+  .og-stat b{display:block; font-family:'Archivo',sans-serif; font-size:30px; color:var(--gold); font-weight:800;}
+  .og-stat span{font-size:11.5px; color:rgba(255,255,255,.6); text-transform:uppercase; letter-spacing:.4px;}
+
+  .lead-grid{display:grid; grid-template-columns:1fr; gap:2px; background:var(--line);}
+  @media(min-width:700px){.lead-grid{grid-template-columns:1fr 1fr;}}
+  .lead-card{background:var(--surface); display:flex; gap:20px; padding:28px;}
+  .lead-card img{width:80px; height:80px; object-fit:cover; flex-shrink:0; filter:grayscale(20%);}
+  .lead-card h4{margin:0 0 2px; font-size:17px; font-weight:800;}
+  .lead-card .role{font-size:12.5px; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.4px; margin-bottom:8px;}
+  .lead-card p{font-size:13.5px; color:var(--steel); margin:0;}
+
+  .cta-band{background:var(--gold); color:var(--charcoal); text-align:left;}
+  .cta-band .grid{display:grid; grid-template-columns:1fr; gap:28px; align-items:center;}
+  @media(min-width:768px){.cta-band .grid{grid-template-columns:2fr 1fr;}}
+  .cta-band h2{color:var(--charcoal); font-size:clamp(28px,4vw,42px); margin:0 0 10px; font-weight:800;}
+  .cta-band p{margin:0; font-size:15px;}
+
+  footer{background:var(--charcoal); color:rgba(255,255,255,.7); padding:70px 0 28px; font-size:14px;}
+  .foot-grid{display:grid; grid-template-columns:1fr; gap:40px;}
+  @media(min-width:800px){.foot-grid{grid-template-columns:2fr 1fr 1fr 1fr;}}
+  footer h5{color:#fff; font-size:12.5px; text-transform:uppercase; letter-spacing:1px; margin:0 0 18px; font-weight:700;}
+  footer a{display:block; text-decoration:none; opacity:.75; margin-bottom:10px;}
+  footer a:hover{opacity:1;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12); margin-top:50px; padding-top:24px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-size:12.5px; opacity:.55;}
+
+  .modal-backdrop{position:fixed; inset:0; background:rgba(16,19,18,.7); z-index:200; display:none; align-items:center; justify-content:center; padding:20px;}
+  .modal-backdrop.open{display:flex;}
+  .modal{background:#fff; max-width:560px; width:100%; max-height:88vh; overflow-y:auto; padding:38px; position:relative; animation:modalIn .3s ease;}
+  @keyframes modalIn{from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);}}
+  .modal h3{margin:0 0 6px; font-size:24px; font-weight:800;}
+  .modal p.hint{color:var(--steel); font-size:14px; margin:0 0 24px;}
+  .modal-close{position:absolute; top:20px; right:20px; background:none; border:none; font-size:22px; cursor:pointer; opacity:.5;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.3px; margin-bottom:7px;}
+  .field input, .field select, .field textarea{width:100%; padding:12px 13px; border:1.5px solid var(--line); font-family:inherit; font-size:14.5px; background:var(--paper);}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--gold);}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .success-panel{display:none; text-align:center; padding:20px 0;}
+  .success-panel.show{display:block;}
+  .success-panel .ref{display:inline-block; background:var(--paper); border:1px dashed var(--gold); padding:10px 18px; font-family:'Archivo',sans-serif; font-weight:800; margin:16px 0;}
+  .check-circle{width:56px; height:56px; background:var(--charcoal); color:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:26px;}
+
+  .concept-badge{position:fixed; bottom:18px; left:18px; z-index:150; background:var(--charcoal); color:#fff; font-size:11px; padding:8px 14px; opacity:.9; font-weight:700; letter-spacing:.4px; text-transform:uppercase;}
+</style>
+</head>
+<body>
+
+<div class="concept-badge">Concept 2 · Industrial Scale — design pitch, not the live site</div>
+
+<header class="nav" id="siteNav">
+  <div class="wrap">
+    <a href="#" class="logo">Umza <em>Farms</em></a>
+    <nav class="links">
+      <a href="#about">Company</a>
+      <a href="#products">Products</a>
+      <a href="#outgrowers">Outgrowers</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="btn btn-primary" onclick="openModal()">Request a Quote</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow fade-up d1"><span class="dot"></span>Integrated Rice &amp; Edible Oil Processing</span>
+        <h1 class="fade-up d2">Industrial-scale agribusiness, built in Kano.</h1>
+        <p class="sub fade-up d3">Umza International Farms processes nearly 200,000 metric tonnes of paddy rice annually across a modern, quality-controlled manufacturing platform — with an edible oil business built on our own rice bran by-product.</p>
+      </div>
+      <div class="hero-side fade-up d4">
+        <div class="actions">
+          <button class="btn btn-primary" onclick="openModal()">Request a Quote</button>
+          <a href="#products" class="btn btn-outline">View Product Specs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+  <span>200,000 MT <b>/YR CAPACITY</b></span>
+  <span>4 <b>RICE BRANDS</b></span>
+  <span>2 <b>EDIBLE OIL LINES</b></span>
+  <span>1,000+ <b>OUTGROWER FARMERS</b></span>
+  <span>20+ <b>YEARS OPERATING</b></span>
+  <span>7,150 <b>HECTARES ALLOCATED</b></span>
+  <span>200,000 MT <b>/YR CAPACITY</b></span>
+  <span>4 <b>RICE BRANDS</b></span>
+  <span>2 <b>EDIBLE OIL LINES</b></span>
+  <span>1,000+ <b>OUTGROWER FARMERS</b></span>
+</div></div>
+
+<section>
+  <div class="wrap">
+    <div class="stat-grid reveal-stagger" id="statGrid">
+      <div class="stat-cell"><div class="stat-num" data-count="200000" data-suffix="+">0</div><div class="stat-label">MT processed / year</div></div>
+      <div class="stat-cell"><div class="stat-num" data-count="20" data-suffix="+">0</div><div class="stat-label">Years operating</div></div>
+      <div class="stat-cell"><div class="stat-num" data-count="4">0</div><div class="stat-label">Rice brands</div></div>
+      <div class="stat-cell"><div class="stat-num" data-count="1000" data-suffix="+">0</div><div class="stat-label">Outgrower farmers</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Platform</p>
+      <h2>Two production lines. One connected supply chain.</h2>
+      <p>Rice bran generated during milling becomes the raw material for our Rice Bran Oil — an intentional, built-in efficiency across our processing platform.</p>
+    </div>
+    <div class="biz-grid reveal">
+      <div class="biz-card">
+        <div class="num">01</div>
+        <img src="https://images.pexels.com/photos/31352672/pexels-photo-31352672.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Rice mill production floor">
+        <div class="body">
+          <h3>Umza Rice Mill</h3>
+          <p>~200,000 MT/year processing capacity, producing Umza Gold, Umza Classic, 3 Tomato Rice, and Kings Choice for household, retail, and institutional customers.</p>
+          <a href="#products" class="btn-text">Product specifications</a>
+        </div>
+      </div>
+      <div class="biz-card">
+        <div class="num">02</div>
+        <img src="https://images.pexels.com/photos/12284682/pexels-photo-12284682.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Edible oil bottling">
+        <div class="body">
+          <h3>Umza Oil Mills</h3>
+          <p>Rice Bran Oil and Soya Bean Oil, launched 2023–2024 — Rice Bran Oil is produced directly from bran generated during our own rice milling process.</p>
+          <a href="#products" class="btn-text">Product specifications</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Product Catalogue</p>
+      <h2>Specification-ready product data for procurement teams.</h2>
+      <p>Download detailed spec sheets for any product line to support your sourcing evaluation.</p>
+    </div>
+    <div class="prod-grid reveal-stagger">
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Umza Gold Rice grains"></div><div class="pbody"><span class="prod-cat">Rice</span><h4>Umza Gold Rice</h4><p>Flagship premium line.</p></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Umza Classic Rice"></div><div class="pbody"><span class="prod-cat">Rice</span><h4>Umza Classic Rice</h4><p>Everyday household staple.</p></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/1306548/pexels-photo-1306548.jpeg?auto=compress&cs=tinysrgb&w=600" alt="3 Tomato Rice"></div><div class="pbody"><span class="prod-cat">Rice</span><h4>3 Tomato Rice</h4><p>Distinct Nigerian-kitchen blend.</p></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/5472000/pexels-photo-5472000.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kings Choice Rice sack"></div><div class="pbody"><span class="prod-cat">Rice</span><h4>Kings Choice</h4><p>Value, bulk-friendly packaging.</p></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/5056853/pexels-photo-5056853.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Rice Bran Oil pour"></div><div class="pbody"><span class="prod-cat">Edible Oil</span><h4>Rice Bran Oil</h4><p>From our own milling by-product.</p></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/9025074/pexels-photo-9025074.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soya Bean Oil bottle"></div><div class="pbody"><span class="prod-cat">Edible Oil</span><h4>Soya Bean Oil</h4><p>Growing edible-oil line.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="outgrowers" class="outgrower">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <img src="https://images.pexels.com/photos/19879051/pexels-photo-19879051.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Farmer working in a field">
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Sourcing Model</p>
+        <h2>An outgrower network built for scale, not sentiment.</h2>
+        <p>54 farmer groups, 1,433 hectares, and a structured input-financing arrangement in Auyo, Jigawa State — plus 150 hectares in Jigawa and 7,000 hectares in Bauchi State allocated for direct cultivation.</p>
+        <div class="og-stats">
+          <div class="og-stat"><b>54</b><span>Farmer groups</span></div>
+          <div class="og-stat"><b>1,034</b><span>Members</span></div>
+          <div class="og-stat"><b>96.42%</b><span>Recovery rate</span></div>
+        </div>
+        <div style="margin-top:32px;"><a href="#" class="btn btn-outline" onclick="openModal(event)">Apply as an Outgrower</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Leadership</p>
+      <h2>Accountable, named leadership.</h2>
+    </div>
+    <div class="lead-grid reveal-stagger">
+      <div class="lead-card">
+        <img src="https://images.pexels.com/photos/5648103/pexels-photo-5648103.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Portrait placeholder — Chairman">
+        <div><h4>Alhaji Mohammed Abubakar Maifata</h4><div class="role">Founder &amp; Chairman</div><p>Founder of Umza Group; shaped the company's transformation into a diversified food-processing platform.</p></div>
+      </div>
+      <div class="lead-card">
+        <img src="https://images.pexels.com/photos/32844861/pexels-photo-32844861.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Portrait placeholder — Farm Manager">
+        <div><h4>Malam Adamu Ali Wudil</h4><div class="role">Farm Manager</div><p>M.Ds, Bayero University Kano. Former Director of State Projects, Kano State Government.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">News</p>
+      <h2>Operational updates.</h2>
+    </div>
+    <div class="prod-grid reveal-stagger" style="grid-template-columns:repeat(3,1fr);">
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/18920790/pexels-photo-18920790.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Factory floor"></div><div class="pbody"><span class="prod-cat">Company</span><h4 style="font-size:15px;">Capacity expansion update</h4></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/11350430/pexels-photo-11350430.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Farmers working soil"></div><div class="pbody"><span class="prod-cat">Outgrowers</span><h4 style="font-size:15px;">2023/24 season recovery rate: 96.42%</h4></div></div>
+      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/34168857/pexels-photo-34168857.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shipping port"></div><div class="pbody"><span class="prod-cat">Company</span><h4 style="font-size:15px;">Export market expansion</h4></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal"><h2>Request a formal quote for your next order.</h2><p>Structured specs, volumes, and destination details — routed straight to our export desk.</p></div>
+      <div class="reveal"><button class="btn btn-dark" style="width:100%;" onclick="openModal()">Request a Quote</button></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo">Umza <em>Farms</em></a>
+        <p style="opacity:.7; font-size:14px; max-width:320px; margin-top:16px;">Integrated agribusiness — rice processing and edible oil production. Kano, Nigeria.</p>
+      </div>
+      <div><h5>Company</h5><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#outgrowers">Outgrowers</a><a href="#news">News</a></div>
+      <div><h5>Products</h5><a href="#products">Rice</a><a href="#products">Edible Oil</a><a href="#" onclick="openModal(event)">Request a Quote</a></div>
+      <div><h5>Contact</h5><a href="#">KM 13, Zaria Road, Kano</a><a href="#">export@umzafarms.com</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Umza International Farms Limited.</span><span>Design concept — Industrial Scale direction</span></div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="formView">
+      <h3>Request a Quote</h3>
+      <p class="hint">Structured specs get faster responses from our export desk.</p>
+      <form id="rfqForm" onsubmit="submitForm(event)">
+        <div class="field-row"><div class="field"><label>Full name</label><input type="text" required></div><div class="field"><label>Company</label><input type="text"></div></div>
+        <div class="field-row"><div class="field"><label>Email</label><input type="email" required></div><div class="field"><label>Country</label><input type="text"></div></div>
+        <div class="field"><label>Product(s) of interest</label><select><option>Umza Gold Rice</option><option>Umza Classic Rice</option><option>3 Tomato Rice</option><option>Kings Choice</option><option>Rice Bran Oil</option><option>Soya Bean Oil</option><option>Not sure yet</option></select></div>
+        <div class="field-row"><div class="field"><label>Estimated volume</label><input type="text" placeholder="e.g. 500 MT / month"></div><div class="field"><label>Timeline</label><select><option>Immediate</option><option>This quarter</option><option>Exploratory</option></select></div></div>
+        <div class="field"><label>Anything else?</label><textarea rows="3"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">Submit Request</button>
+      </form>
+    </div>
+    <div class="success-panel" id="successView">
+      <div class="check-circle">✓</div>
+      <h3>Request received</h3>
+      <p class="hint">Our export desk will respond within 2 business days.</p>
+      <div class="ref" id="refNum">UMZ-RFQ-2026-00042</div>
+      <button class="btn btn-outline" style="border-color:var(--ink); color:var(--ink);" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const navEl = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => navEl.classList.toggle('solid', window.scrollY > 40));
+  const observer = new IntersectionObserver((entries) => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:0.2});
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const el = e.target; const target = parseInt(el.dataset.count,10); const suffix = el.dataset.suffix || '';
+        let cur = 0; const step = Math.max(1, Math.round(target/60));
+        const iv = setInterval(() => { cur += step; if(cur>=target){cur=target; clearInterval(iv);} el.textContent = cur.toLocaleString()+suffix; }, 20);
+        countObserver.unobserve(el);
+      }
+    });
+  }, {threshold:0.4});
+  document.querySelectorAll('.stat-num').forEach(el => countObserver.observe(el));
+  function openModal(e){ if(e) e.preventDefault(); document.getElementById('modalBackdrop').classList.add('open'); document.getElementById('formView').style.display='block'; document.getElementById('successView').classList.remove('show'); }
+  function closeModal(){ document.getElementById('modalBackdrop').classList.remove('open'); }
+  function submitForm(e){ e.preventDefault(); document.getElementById('formView').style.display='none'; document.getElementById('successView').classList.add('show'); document.getElementById('refNum').textContent = 'UMZ-RFQ-2026-' + String(Math.floor(10000+Math.random()*89999)); }
+  document.getElementById('modalBackdrop').addEventListener('click', (e) => { if(e.target.id==='modalBackdrop') closeModal(); });
+</script>
+</body>
+</html>
