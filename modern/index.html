@@ -14,45 +14,52 @@
     --coral-dark:#C75E1E;
     --leaf:#3F9142;
     --leaf-dark:#2E6E31;
+    --sun:#F2B33D;
     --ink:#1F2421;
     --paper:#FFFFFF;
     --cream:#FBF6EE;
     --line:#EDE7DA;
     --shadow-sm:0 2px 10px rgba(31,36,33,.06);
     --shadow-md:0 16px 40px rgba(31,36,33,.14);
+    --shadow-lg:0 26px 60px rgba(31,36,33,.2);
     --max:1280px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
   h1,h2,h3,.disp{font-family:'Poppins',sans-serif;}
-  img{max-width:100%; display:block;}
+  img,svg{max-width:100%; display:block;}
   a{color:inherit;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px; position:relative;}
   @media(min-width:768px){.wrap{padding:0 40px;}}
 
   header.nav{position:fixed; top:0; left:0; right:0; z-index:100; padding:20px 0; transition:.3s;}
   header.nav .wrap{display:flex; align-items:center; justify-content:space-between;}
   header.nav.solid{background:rgba(255,255,255,.92); backdrop-filter:blur(10px); box-shadow:var(--shadow-sm); padding:13px 0;}
-  .logo{font-family:'Poppins',sans-serif; font-weight:800; font-size:21px; color:var(--ink); text-decoration:none;}
+  .logo{display:flex; align-items:center; gap:9px; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--ink); text-decoration:none;}
   .logo span{color:var(--coral);}
-  nav.links{display:none; gap:30px; font-size:15px; font-weight:600;}
+  nav.links{display:none; gap:28px; font-size:14.5px; font-weight:600;}
   nav.links a{text-decoration:none; opacity:.8;}
   nav.links a:hover{opacity:1;}
-  @media(min-width:900px){nav.links{display:flex;}}
-  .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:99px; font-weight:700; font-size:14.5px; text-decoration:none; cursor:pointer; border:2px solid transparent; transition:.15s; font-family:'Inter',sans-serif;}
+  @media(min-width:960px){nav.links{display:flex;}}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:99px; font-weight:700; font-size:14.5px; text-decoration:none; cursor:pointer; border:2px solid transparent; transition:.18s; font-family:'Inter',sans-serif;}
   .btn:hover{transform:translateY(-2px);}
   .btn-primary{background:var(--coral); color:#fff; box-shadow:0 8px 20px rgba(233,118,47,.35);}
   .btn-primary:hover{background:var(--coral-dark);}
   .btn-outline{background:#fff; border-color:var(--line); color:var(--ink);}
   .btn-outline:hover{border-color:var(--ink);}
   .btn-outline.on-dark{background:transparent; border-color:rgba(255,255,255,.5); color:#fff;}
-  .btn-text{background:none; border:none; padding:0; font-weight:700; color:var(--ink);}
+  .btn-text{background:none; border:none; padding:0; font-weight:700; color:var(--ink); cursor:pointer;}
   .btn-text::after{content:'→'; margin-left:6px; display:inline-block; transition:transform .2s;}
   .btn-text:hover::after{transform:translateX(4px);}
 
-  .hero{position:relative; padding-top:150px; padding-bottom:70px; background:linear-gradient(180deg, var(--cream), #fff);}
-  .hero-grid{display:grid; grid-template-columns:1fr; gap:44px; align-items:center;}
+  /* HERO — organic blob illustration, zero external images */
+  .hero{position:relative; padding-top:150px; padding-bottom:80px; background:linear-gradient(180deg, var(--cream), #fff); overflow:hidden;}
+  .blob{position:absolute; border-radius:50%; filter:blur(2px); opacity:.55; animation:drift 10s ease-in-out infinite;}
+  .blob.b1{width:340px; height:340px; background:radial-gradient(circle at 35% 35%, #FBD9B0, var(--sun)); top:-80px; right:-60px; animation-duration:12s;}
+  .blob.b2{width:220px; height:220px; background:radial-gradient(circle at 40% 40%, #CDEACB, var(--leaf)); bottom:-60px; left:-40px; animation-duration:9s; animation-delay:-3s;}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(14px,-18px) scale(1.05);}}
+  .hero-grid{display:grid; grid-template-columns:1fr; gap:44px; align-items:center; position:relative; z-index:2;}
   @media(min-width:920px){.hero-grid{grid-template-columns:1.1fr 1fr;}}
   .hero-eyebrow{display:inline-flex; align-items:center; gap:8px; background:#FCE9D9; color:var(--coral-dark); font-size:13px; font-weight:700; padding:8px 16px; border-radius:99px; margin-bottom:22px; opacity:0;}
   .hero h1{font-size:clamp(32px,5.4vw,58px); font-weight:800; line-height:1.08; margin:0 0 20px; opacity:0;}
@@ -62,11 +69,14 @@
   .fade-up{animation:fadeUp .9s ease forwards;}
   .d1{animation-delay:.1s;} .d2{animation-delay:.28s;} .d3{animation-delay:.46s;} .d4{animation-delay:.62s;} .d5{animation-delay:.4s;}
   @keyframes fadeUp{from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);}}
-  .hero-visual{position:relative; opacity:0;}
-  .hero-visual img{border-radius:24px; box-shadow:var(--shadow-md);}
+  .hero-visual{position:relative; opacity:0; aspect-ratio:1/1;}
+  .hero-visual .bowl-wrap{background:linear-gradient(160deg,#fff,var(--cream)); border-radius:32px; box-shadow:var(--shadow-lg); height:100%; display:flex; align-items:center; justify-content:center; padding:30px;}
+  .steam{transform-origin:bottom center; animation:steam 3.5s ease-in-out infinite;}
+  .steam:nth-child(2){animation-delay:-1.2s;} .steam:nth-child(3){animation-delay:-2.4s;}
+  @keyframes steam{0%{opacity:0; transform:translateY(0) scaleX(1);}30%{opacity:.7;}100%{opacity:0; transform:translateY(-22px) scaleX(1.4);}}
   .float-card{position:absolute; background:#fff; border-radius:16px; box-shadow:var(--shadow-md); padding:16px 20px; display:flex; align-items:center; gap:12px; animation:floaty 4s ease-in-out infinite;}
-  .float-card.c1{top:-18px; left:-18px;}
-  .float-card.c2{bottom:-18px; right:-18px; animation-delay:1s;}
+  .float-card.c1{top:6%; left:-6%;}
+  .float-card.c2{bottom:6%; right:-6%; animation-delay:1s;}
   @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
   .float-card .ico{width:38px; height:38px; border-radius:50%; background:var(--leaf); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; flex-shrink:0;}
   .float-card b{display:block; font-size:15px;}
@@ -86,27 +96,28 @@
   .section-head h2{font-size:clamp(26px,3.6vw,38px); font-weight:800; margin:0 0 14px;}
   .section-head p{font-size:16px; opacity:.75; margin:0;}
 
-  .stats{background:var(--leaf); color:#fff;}
-  .stats .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px; text-align:center;}
+  .stats{background:var(--leaf); color:#fff; position:relative; overflow:hidden;}
+  .stats .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px; text-align:center; position:relative; z-index:1;}
   @media(min-width:768px){.stats .grid{grid-template-columns:repeat(4,1fr);}}
   .stat-num{font-family:'Poppins',sans-serif; font-size:clamp(28px,4vw,42px); font-weight:800;}
   .stat-label{font-size:13.5px; opacity:.85; margin-top:6px;}
 
   .split{display:grid; grid-template-columns:1fr; gap:28px;}
   @media(min-width:860px){.split{grid-template-columns:1fr 1fr;}}
-  .biz-card{background:var(--cream); border-radius:20px; overflow:hidden;}
-  .biz-card img{height:240px; width:100%; object-fit:cover;}
+  .biz-card{background:var(--cream); border-radius:22px; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease;}
+  .biz-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .biz-visual{height:180px; position:relative; display:flex; align-items:center; justify-content:center;}
   .biz-card .body{padding:30px;}
   .biz-card h3{font-size:22px; margin:0 0 10px; font-weight:800;}
   .biz-card p{opacity:.75; margin:0 0 16px; font-size:14.5px;}
 
   .prod-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
   @media(min-width:700px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
-  .prod-card{border-radius:18px; overflow:hidden; background:var(--cream); transition:transform .25s ease, box-shadow .25s ease;}
-  .prod-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
-  .prod-card .imgwrap{height:170px; overflow:hidden; position:relative;}
-  .prod-card img{height:100%; width:100%; object-fit:cover; transition:transform .4s ease;}
-  .prod-card:hover img{transform:scale(1.07);}
+  .prod-card{border-radius:20px; overflow:hidden; background:var(--cream); transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;}
+  .prod-card:hover{transform:translateY(-7px) rotate(-.5deg); box-shadow:var(--shadow-md);}
+  .prod-visual{height:150px; position:relative; display:flex; align-items:center; justify-content:center;}
+  .prod-visual svg{width:60px; height:60px; transition:transform .35s ease;}
+  .prod-card:hover .prod-visual svg{transform:scale(1.1) rotate(4deg);}
   .prod-badge{position:absolute; top:12px; left:12px; background:#fff; font-size:11px; font-weight:700; padding:5px 11px; border-radius:99px;}
   .prod-badge.oil{color:var(--coral-dark);}
   .prod-badge.rice{color:var(--leaf-dark);}
@@ -117,33 +128,55 @@
   .outgrower{background:var(--cream);}
   .outgrower .grid{display:grid; grid-template-columns:1fr; gap:44px; align-items:center;}
   @media(min-width:900px){.outgrower .grid{grid-template-columns:1fr 1fr;}}
-  .outgrower img{border-radius:20px; box-shadow:var(--shadow-md);}
+  .og-visual{border-radius:24px; box-shadow:var(--shadow-md); aspect-ratio:4/3; background:linear-gradient(160deg,#fff,#F3EBDB); position:relative; overflow:hidden;}
+  .og-visual svg{position:absolute; inset:0; width:100%; height:100%;}
   .og-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px;}
   .og-stat{background:#fff; border-radius:14px; padding:18px; text-align:center;}
   .og-stat b{display:block; font-family:'Poppins',sans-serif; font-size:24px; color:var(--leaf-dark); font-weight:800;}
   .og-stat span{font-size:11.5px; opacity:.65;}
 
+  /* HISTORY — playful horizontal-scroll cards */
+  .tl-scroll{display:flex; gap:20px; overflow-x:auto; padding:8px 4px 20px; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;}
+  .tl-scroll::-webkit-scrollbar{height:6px;}
+  .tl-scroll::-webkit-scrollbar-thumb{background:var(--line); border-radius:99px;}
+  .tl-card{scroll-snap-align:start; flex:0 0 240px; background:var(--cream); border-radius:20px; padding:26px 22px; transition:transform .25s ease, box-shadow .25s ease;}
+  .tl-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
+  .tl-card .yr{display:inline-block; background:#fff; color:var(--coral-dark); font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; padding:5px 12px; border-radius:99px; margin-bottom:14px;}
+  .tl-card p{margin:0; font-size:14px; opacity:.8;}
+
   .lead-grid{display:grid; grid-template-columns:1fr; gap:24px;}
   @media(min-width:700px){.lead-grid{grid-template-columns:1fr 1fr;}}
-  .lead-card{text-align:center; background:var(--cream); border-radius:20px; padding:32px 24px;}
-  .lead-card img{width:96px; height:96px; border-radius:50%; object-fit:cover; margin:0 auto 16px;}
+  .lead-card{text-align:center; background:var(--cream); border-radius:22px; padding:32px 24px; transition:transform .25s ease, box-shadow .25s ease;}
+  .lead-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .avatar{width:88px; height:88px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:26px; color:#fff; background:linear-gradient(135deg, var(--coral), var(--coral-dark));}
+  .avatar.leaf{background:linear-gradient(135deg, var(--leaf), var(--leaf-dark));}
   .lead-card h4{margin:0 0 2px; font-size:17px; font-weight:700;}
   .lead-card .role{font-size:13px; color:var(--coral-dark); font-weight:700; margin-bottom:10px;}
   .lead-card p{font-size:13.5px; opacity:.7; margin:0;}
+  .mgmt-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:20px;}
+  @media(min-width:700px){.mgmt-grid{grid-template-columns:repeat(4,1fr);}}
+  .mgmt-card{text-align:center; background:#fff; border:1.5px dashed var(--line); border-radius:18px; padding:22px 12px; transition:border-color .2s ease, transform .2s ease;}
+  .mgmt-card:hover{border-color:var(--coral); transform:translateY(-3px);}
+  .mgmt-card .avatar{width:56px; height:56px; font-size:13px; margin:0 auto 12px; background:var(--cream); color:var(--coral-dark);}
+  .mgmt-card h5{margin:0 0 4px; font-size:13.5px; font-weight:700;}
+  .mgmt-card .role{font-size:11.5px; opacity:.6; margin:0;}
+  .ph-note{text-align:center; font-size:13px; opacity:.55; margin:20px 0 0; font-style:italic;}
 
   .news-grid{display:grid; grid-template-columns:1fr; gap:22px;}
   @media(min-width:700px){.news-grid{grid-template-columns:repeat(3,1fr);}}
-  .news-card{border-radius:18px; overflow:hidden; background:var(--cream);}
-  .news-card .imgwrap{height:150px;}
-  .news-card img{height:100%; width:100%; object-fit:cover;}
+  .news-card{border-radius:20px; overflow:hidden; background:var(--cream); transition:transform .25s ease, box-shadow .25s ease;}
+  .news-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .news-visual{height:130px; display:flex; align-items:center; justify-content:center;}
+  .news-visual svg{width:42px; height:42px;}
   .news-card .nbody{padding:18px;}
   .news-date{font-size:12px; opacity:.55; margin-bottom:8px;}
   .news-card h4{font-size:15.5px; margin:0; font-weight:700;}
 
-  .cta-band{background:linear-gradient(120deg, var(--coral), #F2955A); color:#fff; text-align:center; border-radius:28px; margin:0 24px; padding:70px 24px;}
+  .cta-band{background:linear-gradient(120deg, var(--coral), var(--sun)); color:#fff; text-align:center; border-radius:32px; margin:0 24px; padding:70px 24px; position:relative; overflow:hidden;}
   @media(min-width:768px){.cta-band{margin:0 40px;}}
-  .cta-band h2{color:#fff; font-size:clamp(26px,3.8vw,38px); margin:0 0 14px; font-weight:800;}
-  .cta-band p{color:rgba(255,255,255,.92); margin:0 0 28px;}
+  .cta-band h2{color:#fff; font-size:clamp(26px,3.8vw,38px); margin:0 0 14px; font-weight:800; position:relative; z-index:1;}
+  .cta-band p{color:rgba(255,255,255,.92); margin:0 0 28px; position:relative; z-index:1;}
+  .cta-band .btn{position:relative; z-index:1;}
 
   footer{background:var(--ink); color:rgba(255,255,255,.72); padding:60px 0 26px; font-size:14px; margin-top:60px;}
   .foot-grid{display:grid; grid-template-columns:1fr; gap:32px;}
@@ -162,7 +195,7 @@
   .modal-close{position:absolute; top:20px; right:20px; background:var(--cream); border:none; width:34px; height:34px; border-radius:50%; font-size:18px; cursor:pointer;}
   .field{margin-bottom:15px;}
   .field label{display:block; font-size:13px; font-weight:600; margin-bottom:6px;}
-  .field input, .field select, .field textarea{width:100%; padding:12px 14px; border:1.5px solid var(--line); border-radius:12px; font-family:inherit; font-size:14.5px; background:var(--cream);}
+  .field input, .field select, .field textarea{width:100%; padding:12px 14px; border:1.5px solid var(--line); border-radius:12px; font-family:inherit; font-size:14.5px; background:var(--cream); color:var(--ink);}
   .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--coral);}
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   .success-panel{display:none; text-align:center; padding:16px 0;}
@@ -179,12 +212,13 @@
 
 <header class="nav" id="siteNav">
   <div class="wrap">
-    <a href="#" class="logo">Umza<span>Farms</span></a>
+    <a href="#" class="logo"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#3F9142"/><path d="M12 18c0-5-2.5-8-2.5-8S12 6 12 6s2.5 4 2.5 8-2.5 4-2.5 4z" fill="#E9762F"/></svg>Umza<span>Farms</span></a>
     <nav class="links">
       <a href="#about">Company</a>
+      <a href="#history">Our Story</a>
       <a href="#products">Products</a>
       <a href="#outgrowers">Outgrowers</a>
-      <a href="#news">News</a>
+      <a href="#leadership">Team</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="btn btn-primary" onclick="openModal()">Request a Quote</button>
@@ -192,6 +226,8 @@
 </header>
 
 <section class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -204,7 +240,25 @@
         </div>
       </div>
       <div class="hero-visual fade-up d5">
-        <img src="https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A bowl of cooked Umza rice">
+        <div class="bowl-wrap">
+          <svg viewBox="0 0 240 200" width="100%">
+            <g class="steam"><path d="M100 60 C94 50 106 42 100 30" stroke="#C9CFC8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+            <g class="steam"><path d="M120 55 C114 45 126 37 120 25" stroke="#C9CFC8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+            <g class="steam"><path d="M140 60 C134 50 146 42 140 30" stroke="#C9CFC8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+            <ellipse cx="120" cy="130" rx="90" ry="24" fill="#EDE7DA"/>
+            <path d="M35 120 a85,40 0 0 0 170,0 v14 a85,40 0 0 1 -170,0 z" fill="#F2955A"/>
+            <ellipse cx="120" cy="118" rx="85" ry="34" fill="#FBF6EE"/>
+            <g fill="#fff" stroke="#E4DDCB" stroke-width="1">
+              <ellipse cx="90" cy="112" rx="5" ry="9" transform="rotate(-20 90 112)"/>
+              <ellipse cx="110" cy="105" rx="5" ry="9" transform="rotate(10 110 105)"/>
+              <ellipse cx="130" cy="112" rx="5" ry="9" transform="rotate(-10 130 112)"/>
+              <ellipse cx="150" cy="106" rx="5" ry="9" transform="rotate(20 150 106)"/>
+              <ellipse cx="100" cy="122" rx="5" ry="9" transform="rotate(6 100 122)"/>
+              <ellipse cx="140" cy="122" rx="5" ry="9" transform="rotate(-6 140 122)"/>
+              <ellipse cx="120" cy="128" rx="5" ry="9"/>
+            </g>
+          </svg>
+        </div>
         <div class="float-card c1"><div class="ico">✓</div><div><b>No preservatives</b><span>Locally sourced paddy</span></div></div>
         <div class="float-card c2"><div class="ico">4</div><div><b>Rice brands</b><span>Every household need</span></div></div>
       </div>
@@ -232,7 +286,9 @@
     </div>
     <div class="split reveal">
       <div class="biz-card">
-        <img src="https://images.pexels.com/photos/1146708/pexels-photo-1146708.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Green rice field at sunset">
+        <div class="biz-visual" style="background:linear-gradient(135deg,#FBE7CC,#F2B33D);">
+          <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#fff" opacity=".3"/><path d="M35 55c0-14-7-22-7-22s7 8 7 22z" fill="#8C6620"/><path d="M35 55c0-14 7-22 7-22s-7 8-7 22z" fill="#B8862B"/></svg>
+        </div>
         <div class="body">
           <h3>🌾 Umza Rice Mill</h3>
           <p>Four brands, packaged without added preservatives, in sizes that fit any kitchen — from a 5kg family bag to bulk institutional supply.</p>
@@ -240,7 +296,9 @@
         </div>
       </div>
       <div class="biz-card">
-        <img src="https://images.pexels.com/photos/12284682/pexels-photo-12284682.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Bottled edible oil">
+        <div class="biz-visual" style="background:linear-gradient(135deg,#DCEEDC,#3F9142);">
+          <svg width="70" height="70" viewBox="0 0 70 70"><rect x="28" y="20" width="14" height="34" rx="4" fill="#fff" opacity=".9"/><rect x="31" y="12" width="8" height="10" rx="2" fill="#fff" opacity=".9"/></svg>
+        </div>
         <div class="body">
           <h3>🫒 Umza Oil Mills</h3>
           <p>Rice Bran Oil — made from the bran left over from our own rice milling — and Soya Bean Oil, both for everyday cooking.</p>
@@ -251,7 +309,25 @@
   </div>
 </section>
 
-<section id="products" style="background:var(--cream);">
+<section id="history" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>Two decades in the making.</h2>
+      <p>Swipe through the milestones that got us here.</p>
+    </div>
+    <div class="tl-scroll reveal">
+      <div class="tl-card"><span class="yr">2004</span><p>Umza International Farms Limited is incorporated in Kano.</p></div>
+      <div class="tl-card"><span class="yr">2009</span><p>Commercial rice milling begins — 70,000 MT/year initial capacity.</p></div>
+      <div class="tl-card"><span class="yr">2015–20</span><p>Outgrower network expands; joins CBN's Anchor Borrowers' Programme.</p></div>
+      <div class="tl-card"><span class="yr">2020–22</span><p>Capacity grows to ~200,000 MT/year; new land allocated in Jigawa &amp; Bauchi.</p></div>
+      <div class="tl-card"><span class="yr">2023–24</span><p>Umza Oil Mills launches — Rice Bran &amp; Soya Bean Oil join the family.</p></div>
+      <div class="tl-card"><span class="yr">2026</span><p>Hybrid solar + battery plant commissioned at our Kano facility.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Products</span>
@@ -259,12 +335,12 @@
       <p>Available at leading retailers nationwide. Distributors and bulk buyers can request a quote directly.</p>
     </div>
     <div class="prod-grid reveal-stagger">
-      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Umza Gold Rice"><span class="prod-badge rice">Rice</span></div><div class="pbody"><h4>Umza Gold Rice</h4><p>Our premium flagship rice.</p></div></div>
-      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/8992843/pexels-photo-8992843.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Umza Classic Rice"><span class="prod-badge rice">Rice</span></div><div class="pbody"><h4>Umza Classic Rice</h4><p>Everyday household favorite.</p></div></div>
-      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/1306548/pexels-photo-1306548.jpeg?auto=compress&cs=tinysrgb&w=600" alt="3 Tomato Rice"><span class="prod-badge rice">Rice</span></div><div class="pbody"><h4>3 Tomato Rice</h4><p>A Nigerian-kitchen classic.</p></div></div>
-      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/5472000/pexels-photo-5472000.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kings Choice Rice"><span class="prod-badge rice">Rice</span></div><div class="pbody"><h4>Kings Choice</h4><p>Great value, family size.</p></div></div>
-      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/5056853/pexels-photo-5056853.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Rice Bran Oil"><span class="prod-badge oil">Oil</span></div><div class="pbody"><h4>Rice Bran Oil</h4><p>Light, everyday cooking oil.</p></div></div>
-      <div class="prod-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/9025074/pexels-photo-9025074.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soya Bean Oil"><span class="prod-badge oil">Oil</span></div><div class="pbody"><h4>Soya Bean Oil</h4><p>A pantry essential.</p></div></div>
+      <div class="prod-card"><div class="prod-visual" style="background:#F1E7CF;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#B8862B"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#8C6620"/></svg></div><div class="pbody"><h4>Umza Gold Rice</h4><p>Our premium flagship rice.</p></div></div>
+      <div class="prod-card"><div class="prod-visual" style="background:#F3DDD5;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#C75E1E"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#A34A17"/></svg></div><div class="pbody"><h4>Umza Classic Rice</h4><p>Everyday household favorite.</p></div></div>
+      <div class="prod-card"><div class="prod-visual" style="background:#F6E3D9;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#E9762F"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#C75E1E"/></svg></div><div class="pbody"><h4>3 Tomato Rice</h4><p>A Nigerian-kitchen classic.</p></div></div>
+      <div class="prod-card"><div class="prod-visual" style="background:#DEE9DE;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#3F9142"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#2E6E31"/></svg></div><div class="pbody"><h4>Kings Choice</h4><p>Great value, family size.</p></div></div>
+      <div class="prod-card"><div class="prod-visual" style="background:#F1E7CF;"><span class="prod-badge oil">Oil</span><svg viewBox="0 0 60 60"><rect x="22" y="18" width="16" height="34" rx="5" fill="#F2B33D"/><rect x="26" y="10" width="8" height="10" rx="2" fill="#C9962E"/></svg></div><div class="pbody"><h4>Rice Bran Oil</h4><p>Light, everyday cooking oil.</p></div></div>
+      <div class="prod-card"><div class="prod-visual" style="background:#DEE9DE;"><span class="prod-badge oil">Oil</span><svg viewBox="0 0 60 60"><rect x="22" y="18" width="16" height="34" rx="5" fill="#4E9C52"/><rect x="26" y="10" width="8" height="10" rx="2" fill="#2E6E31"/></svg></div><div class="pbody"><h4>Soya Bean Oil</h4><p>A pantry essential.</p></div></div>
     </div>
   </div>
 </section>
@@ -273,7 +349,17 @@
   <div class="wrap">
     <div class="grid">
       <div class="reveal">
-        <img src="https://images.pexels.com/photos/13437650/pexels-photo-13437650.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A farmer working in the field">
+        <div class="og-visual">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <g stroke="#3F9142" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85">
+              <path d="M80,270 C74,220 92,185 84,135"/><path d="M140,270 C148,225 128,190 136,140"/>
+              <path d="M200,270 C193,215 213,178 204,120"/><path d="M260,270 C267,222 248,188 256,138"/>
+              <path d="M320,270 C313,218 333,182 324,128"/>
+            </g>
+            <g fill="#F2B33D"><ellipse cx="84" cy="128" rx="7" ry="15"/><ellipse cx="136" cy="133" rx="7" ry="15"/><ellipse cx="204" cy="113" rx="7" ry="15"/><ellipse cx="256" cy="131" rx="7" ry="15"/><ellipse cx="324" cy="121" rx="7" ry="15"/></g>
+            <circle cx="200" cy="55" r="30" fill="#fff"/><circle cx="200" cy="55" r="30" fill="none" stroke="#E9762F" stroke-width="3"/>
+          </svg>
+        </div>
       </div>
       <div class="reveal">
         <span class="eyebrow">Outgrower Programme</span>
@@ -293,23 +379,30 @@
 <section id="leadership">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Leadership</span>
+      <span class="eyebrow">Leadership &amp; Team</span>
       <h2>The people behind the brand.</h2>
     </div>
     <div class="lead-grid reveal-stagger">
       <div class="lead-card">
-        <img src="https://images.pexels.com/photos/5648103/pexels-photo-5648103.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Portrait placeholder — Chairman">
+        <div class="avatar">MM</div>
         <h4>Alhaji Mohammed Abubakar Maifata</h4>
         <div class="role">Founder &amp; Chairman</div>
         <p>Leading Umza Group's growth from a rice-focused business into a diversified food-processing company.</p>
       </div>
       <div class="lead-card">
-        <img src="https://images.pexels.com/photos/32844861/pexels-photo-32844861.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Portrait placeholder — Farm Manager">
+        <div class="avatar leaf">AW</div>
         <h4>Malam Adamu Ali Wudil</h4>
         <div class="role">Farm Manager</div>
         <p>Decades of experience in agricultural development, from Fadama coordination to hands-on farm management.</p>
       </div>
     </div>
+    <div class="mgmt-grid reveal-stagger">
+      <div class="mgmt-card"><div class="avatar">—</div><h5>Milling Ops</h5><p class="role">Seat to be confirmed</p></div>
+      <div class="mgmt-card"><div class="avatar">—</div><h5>Quality Team</h5><p class="role">Seat to be confirmed</p></div>
+      <div class="mgmt-card"><div class="avatar">—</div><h5>Sales &amp; Trade</h5><p class="role">Seat to be confirmed</p></div>
+      <div class="mgmt-card"><div class="avatar">—</div><h5>Sustainability</h5><p class="role">Seat to be confirmed</p></div>
+    </div>
+    <p class="ph-note">Additional team tiles above are illustrative placeholders — swap in real names, titles, and photos when available.</p>
   </div>
 </section>
 
@@ -320,9 +413,9 @@
       <h2>What's happening at Umza.</h2>
     </div>
     <div class="news-grid reveal-stagger">
-      <div class="news-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/18920790/pexels-photo-18920790.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Factory"></div><div class="nbody"><div class="news-date">Company News</div><h4>New packaging rolling out nationwide</h4></div></div>
-      <div class="news-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/14314165/pexels-photo-14314165.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Farmers in a field"></div><div class="nbody"><div class="news-date">Outgrowers</div><h4>Meet the farmers behind Umza Gold</h4></div></div>
-      <div class="news-card"><div class="imgwrap"><img src="https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cooked rice dish"></div><div class="nbody"><div class="news-date">Recipes</div><h4>5 ways to cook with 3 Tomato Rice</h4></div></div>
+      <div class="news-card"><div class="news-visual" style="background:#F1E7CF;"><svg viewBox="0 0 42 42"><rect x="8" y="16" width="26" height="18" rx="2" fill="none" stroke="#B8862B" stroke-width="2"/><path d="M8 22h26" stroke="#B8862B" stroke-width="2"/></svg></div><div class="nbody"><div class="news-date">Company News</div><h4>New packaging rolling out nationwide</h4></div></div>
+      <div class="news-card"><div class="news-visual" style="background:#DEE9DE;"><svg viewBox="0 0 42 42"><path d="M10 34c0-9 4.5-14 11-17 6.5 3 11 8 11 17" fill="none" stroke="#3F9142" stroke-width="2"/></svg></div><div class="nbody"><div class="news-date">Outgrowers</div><h4>Meet the farmers behind Umza Gold</h4></div></div>
+      <div class="news-card"><div class="news-visual" style="background:#F6E3D9;"><svg viewBox="0 0 42 42"><ellipse cx="21" cy="26" rx="15" ry="7" fill="none" stroke="#E9762F" stroke-width="2"/><path d="M8 20a13 13 0 0 1 26 0" stroke="#E9762F" stroke-width="2" fill="none"/></svg></div><div class="nbody"><div class="news-date">Recipes</div><h4>5 ways to cook with 3 Tomato Rice</h4></div></div>
     </div>
   </div>
 </section>
@@ -342,7 +435,7 @@
         <a href="#" class="logo" style="color:#fff;">Umza<span>Farms</span></a>
         <p style="opacity:.7; font-size:14px; max-width:300px; margin-top:14px;">Real Nigerian rice and edible oil, from Kano to your kitchen.</p>
       </div>
-      <div><h5>Company</h5><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#outgrowers">Outgrowers</a><a href="#news">News</a></div>
+      <div><h5>Company</h5><a href="#about">About</a><a href="#history">Our Story</a><a href="#leadership">Team</a></div>
       <div><h5>Products</h5><a href="#products">Rice</a><a href="#products">Edible Oil</a><a href="#" onclick="openModal(event)">Request a Quote</a></div>
       <div><h5>Contact</h5><a href="#">KM 13, Zaria Road, Kano</a><a href="#">hello@umzafarms.com</a></div>
     </div>
