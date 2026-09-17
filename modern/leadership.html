@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Umza International Farms — Modern Consumer Concept</title>
+<title>Umza International Farms — Leadership & Management | Modern Consumer</title>
 <meta name="description" content="Design concept for Umza International Farms — premium agribusiness website concept, Modern Consumer-Facing direction.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -204,6 +204,26 @@
   .check-circle{width:60px; height:60px; border-radius:50%; background:var(--leaf); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:28px;}
 
   .concept-badge{position:fixed; bottom:18px; left:18px; z-index:150; background:var(--ink); color:#fff; font-size:11.5px; padding:8px 14px; border-radius:99px; opacity:.9; font-weight:600;}
+
+  .portrait-grid{display:grid; grid-template-columns:1fr; gap:26px;}
+  @media(min-width:800px){.portrait-grid{grid-template-columns:1fr 1fr;}}
+  .portrait-grid.small{grid-template-columns:repeat(2,1fr); gap:18px;}
+  @media(min-width:700px){.portrait-grid.small{grid-template-columns:repeat(4,1fr);}}
+  .portrait-card{background:var(--cream); border-radius:22px; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease;}
+  .portrait-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .portrait-card.placeholder{background:#fff; border:1.5px dashed var(--line);}
+  .portrait-frame{aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; position:relative;}
+  .portrait-frame svg{width:44%; height:44%;}
+  .portrait-frame.coral{background:linear-gradient(160deg,var(--coral),var(--coral-dark));}
+  .portrait-frame.leaf{background:linear-gradient(160deg,var(--leaf),var(--leaf-dark));}
+  .portrait-frame.muted{background:var(--line);}
+  .pending-tag{position:absolute; bottom:10px; left:50%; transform:translateX(-50%); background:rgba(31,36,33,.75); color:#fff; font-size:10px; font-weight:700; padding:4px 10px; border-radius:99px; white-space:nowrap;}
+  .portrait-body{padding:22px;}
+  .portrait-body h3{font-size:18px; margin:0 0 4px; font-weight:700;}
+  .portrait-body h4{font-size:14px; margin:0 0 4px; font-weight:700;}
+  .portrait-body .role{font-size:12.5px; color:var(--coral-dark); font-weight:700; margin-bottom:10px;}
+  .portrait-body p{font-size:13.5px; opacity:.7; margin:0 0 10px;}
+  .portrait-card.placeholder .portrait-body{padding:16px; text-align:center;}
 </style>
 </head>
 <body>
@@ -212,12 +232,12 @@
 
 <header class="nav" id="siteNav">
   <div class="wrap">
-    <a href="#" class="logo"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#3F9142"/><path d="M12 18c0-5-2.5-8-2.5-8S12 6 12 6s2.5 4 2.5 8-2.5 4-2.5 4z" fill="#E9762F"/></svg>Umza<span>Farms</span></a>
+    <a href="index.html" class="logo"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#3F9142"/><path d="M12 18c0-5-2.5-8-2.5-8S12 6 12 6s2.5 4 2.5 8-2.5 4-2.5 4z" fill="#E9762F"/></svg>Umza<span>Farms</span></a>
     <nav class="links">
-      <a href="#about">Company</a>
-      <a href="#history">Our Story</a>
-      <a href="#products">Products</a>
-      <a href="#outgrowers">Outgrowers</a>
+      <a href="index.html#about">Company</a>
+      <a href="index.html#history">Our Story</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#outgrowers">Outgrowers</a>
       <a href="leadership.html">Team</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -225,200 +245,68 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="hero-eyebrow fade-up d1">🌾 Nigerian-grown, locally milled</span>
-        <h1 class="fade-up d2">Rice and oil your family already <span class="accent">trusts</span>.</h1>
-        <p class="sub fade-up d3">Umza Gold, Umza Classic, 3 Tomato Rice, and Kings Choice — plus Rice Bran and Soya Bean Oil. Real Nigerian agriculture, packaged for your table.</p>
-        <div class="actions fade-up d4">
-          <button class="btn btn-primary" onclick="openModal()">Request a Quote</button>
-          <a href="#products" class="btn btn-outline">See All Products</a>
-        </div>
-      </div>
-      <div class="hero-visual fade-up d5">
-        <div class="bowl-wrap">
-          <svg viewBox="0 0 240 200" width="100%">
-            <g class="steam"><path d="M100 60 C94 50 106 42 100 30" stroke="#C9CFC8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
-            <g class="steam"><path d="M120 55 C114 45 126 37 120 25" stroke="#C9CFC8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
-            <g class="steam"><path d="M140 60 C134 50 146 42 140 30" stroke="#C9CFC8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
-            <ellipse cx="120" cy="130" rx="90" ry="24" fill="#EDE7DA"/>
-            <path d="M35 120 a85,40 0 0 0 170,0 v14 a85,40 0 0 1 -170,0 z" fill="#F2955A"/>
-            <ellipse cx="120" cy="118" rx="85" ry="34" fill="#FBF6EE"/>
-            <g fill="#fff" stroke="#E4DDCB" stroke-width="1">
-              <ellipse cx="90" cy="112" rx="5" ry="9" transform="rotate(-20 90 112)"/>
-              <ellipse cx="110" cy="105" rx="5" ry="9" transform="rotate(10 110 105)"/>
-              <ellipse cx="130" cy="112" rx="5" ry="9" transform="rotate(-10 130 112)"/>
-              <ellipse cx="150" cy="106" rx="5" ry="9" transform="rotate(20 150 106)"/>
-              <ellipse cx="100" cy="122" rx="5" ry="9" transform="rotate(6 100 122)"/>
-              <ellipse cx="140" cy="122" rx="5" ry="9" transform="rotate(-6 140 122)"/>
-              <ellipse cx="120" cy="128" rx="5" ry="9"/>
-            </g>
-          </svg>
-        </div>
-        <div class="float-card c1"><div class="ico">✓</div><div><b>No preservatives</b><span>Locally sourced paddy</span></div></div>
-        <div class="float-card c2"><div class="ico">4</div><div><b>Rice brands</b><span>Every household need</span></div></div>
-      </div>
-    </div>
+<section style="position:relative; overflow:hidden; padding:150px 0 60px; background:linear-gradient(180deg, var(--cream), #fff);">
+  <div class="blob b1" style="opacity:.4;"></div>
+  <div class="wrap" style="position:relative; z-index:2;">
+    <a href="index.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--coral-dark); font-size:14px; font-weight:700; text-decoration:none; margin-bottom:20px;">← Back to Umza Farms</a>
+    <span class="eyebrow">Leadership &amp; Team</span>
+    <h1 style="font-size:clamp(28px,4.6vw,48px); font-weight:800; margin:14px 0 14px; max-width:680px;">The people behind the brand.</h1>
+    <p style="font-size:16.5px; opacity:.75; max-width:560px; margin:0;">Meet the founders and operators building Umza — and the team we're growing around them.</p>
   </div>
 </section>
 
-<section class="stats">
-  <div class="wrap">
-    <div class="grid reveal-stagger" id="statGrid">
-      <div><div class="stat-num" data-count="200000" data-suffix="+">0</div><div class="stat-label">MT processed / year</div></div>
-      <div><div class="stat-num" data-count="20" data-suffix="+">0</div><div class="stat-label">Years operating</div></div>
-      <div><div class="stat-num" data-count="4">0</div><div class="stat-label">Rice brands</div></div>
-      <div><div class="stat-num" data-count="1000" data-suffix="+">0</div><div class="stat-label">Outgrower farmers</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
+<section>
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Our Business</span>
-      <h2>From paddy field to pantry.</h2>
-      <p>Two connected businesses — rice and edible oil — built around one integrated supply chain.</p>
+      <span class="eyebrow">Executive Leadership</span>
+      <h2>The founders and operators.</h2>
     </div>
-    <div class="split reveal">
-      <div class="biz-card">
-        <div class="biz-visual" style="background:linear-gradient(135deg,#FBE7CC,#F2B33D);">
-          <svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#fff" opacity=".3"/><path d="M35 55c0-14-7-22-7-22s7 8 7 22z" fill="#8C6620"/><path d="M35 55c0-14 7-22 7-22s-7 8-7 22z" fill="#B8862B"/></svg>
+    <div class="portrait-grid reveal-stagger">
+      <div class="portrait-card">
+        <div class="portrait-frame coral">
+          <svg viewBox="0 0 100 120"><circle cx="50" cy="42" r="20" fill="#fff"/><path d="M14 120 C14 90 30 76 50 76 C70 76 86 90 86 120 Z" fill="#fff"/></svg>
         </div>
-        <div class="body">
-          <h3>🌾 Umza Rice Mill</h3>
-          <p>Four brands, packaged without added preservatives, in sizes that fit any kitchen — from a 5kg family bag to bulk institutional supply.</p>
-          <a href="#products" class="btn-text">Browse rice brands</a>
+        <div class="portrait-body">
+          <h3>Alhaji Mohammed Abubakar Maifata</h3>
+          <div class="role">Founder &amp; Chairman</div>
+          <p>Founder of Umza Group, leading its growth from a rice-focused business into a diversified food-processing company with interests in agriculture, logistics, trading, and aviation.</p>
+          <p>His focus on local sourcing and farmer partnerships shapes everything Umza makes — and he's an active supporter of education, healthcare, and youth-empowerment causes across Northern Nigeria.</p>
         </div>
       </div>
-      <div class="biz-card">
-        <div class="biz-visual" style="background:linear-gradient(135deg,#DCEEDC,#3F9142);">
-          <svg width="70" height="70" viewBox="0 0 70 70"><rect x="28" y="20" width="14" height="34" rx="4" fill="#fff" opacity=".9"/><rect x="31" y="12" width="8" height="10" rx="2" fill="#fff" opacity=".9"/></svg>
+      <div class="portrait-card">
+        <div class="portrait-frame leaf">
+          <svg viewBox="0 0 100 120"><circle cx="50" cy="42" r="20" fill="#fff"/><path d="M14 120 C14 90 30 76 50 76 C70 76 86 90 86 120 Z" fill="#fff"/></svg>
         </div>
-        <div class="body">
-          <h3>🫒 Umza Oil Mills</h3>
-          <p>Rice Bran Oil — made from the bran left over from our own rice milling — and Soya Bean Oil, both for everyday cooking.</p>
-          <a href="#products" class="btn-text">Browse oil products</a>
+        <div class="portrait-body">
+          <h3>Malam Adamu Ali Wudil</h3>
+          <div class="role">Farm Manager</div>
+          <p>Decades of experience in agricultural development — from coordinating Kano State's Fadama programme to hands-on farm management today. Holds a Master's in Development Studies from Bayero University, Kano.</p>
+          <p>His international training spans the Philippines, Egypt, Malawi, Ethiopia, and Israel.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="history" style="background:var(--cream);">
+<section style="background:var(--cream);">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Our Story</span>
-      <h2>Two decades in the making.</h2>
-      <p>Swipe through the milestones that got us here.</p>
+      <span class="eyebrow">Management Team</span>
+      <h2>Growing the team behind the brand.</h2>
+      <p>Illustrative placeholders — real names, titles, and photos coming soon.</p>
     </div>
-    <div class="tl-scroll reveal">
-      <div class="tl-card"><span class="yr">2004</span><p>Umza International Farms Limited is incorporated in Kano.</p></div>
-      <div class="tl-card"><span class="yr">2009</span><p>Commercial rice milling begins — 70,000 MT/year initial capacity.</p></div>
-      <div class="tl-card"><span class="yr">2015–20</span><p>Outgrower network expands; joins CBN's Anchor Borrowers' Programme.</p></div>
-      <div class="tl-card"><span class="yr">2020–22</span><p>Capacity grows to ~200,000 MT/year; new land allocated in Jigawa &amp; Bauchi.</p></div>
-      <div class="tl-card"><span class="yr">2023–24</span><p>Umza Oil Mills launches — Rice Bran &amp; Soya Bean Oil join the family.</p></div>
-      <div class="tl-card"><span class="yr">2026</span><p>Hybrid solar + battery plant commissioned at our Kano facility.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="products">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Products</span>
-      <h2>Find your favorite on the shelf.</h2>
-      <p>Available at leading retailers nationwide. Distributors and bulk buyers can request a quote directly.</p>
-    </div>
-    <div class="prod-grid reveal-stagger">
-      <div class="prod-card"><div class="prod-visual" style="background:#F1E7CF;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#B8862B"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#8C6620"/></svg></div><div class="pbody"><h4>Umza Gold Rice</h4><p>Our premium flagship rice.</p></div></div>
-      <div class="prod-card"><div class="prod-visual" style="background:#F3DDD5;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#C75E1E"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#A34A17"/></svg></div><div class="pbody"><h4>Umza Classic Rice</h4><p>Everyday household favorite.</p></div></div>
-      <div class="prod-card"><div class="prod-visual" style="background:#F6E3D9;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#E9762F"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#C75E1E"/></svg></div><div class="pbody"><h4>3 Tomato Rice</h4><p>A Nigerian-kitchen classic.</p></div></div>
-      <div class="prod-card"><div class="prod-visual" style="background:#DEE9DE;"><span class="prod-badge rice">Rice</span><svg viewBox="0 0 60 60"><path d="M15 24h30l4 30a4 4 0 0 1-4 4.5H15a4 4 0 0 1-4-4.5z" fill="#3F9142"/><rect x="23" y="14" width="14" height="10" rx="2" fill="#2E6E31"/></svg></div><div class="pbody"><h4>Kings Choice</h4><p>Great value, family size.</p></div></div>
-      <div class="prod-card"><div class="prod-visual" style="background:#F1E7CF;"><span class="prod-badge oil">Oil</span><svg viewBox="0 0 60 60"><rect x="22" y="18" width="16" height="34" rx="5" fill="#F2B33D"/><rect x="26" y="10" width="8" height="10" rx="2" fill="#C9962E"/></svg></div><div class="pbody"><h4>Rice Bran Oil</h4><p>Light, everyday cooking oil.</p></div></div>
-      <div class="prod-card"><div class="prod-visual" style="background:#DEE9DE;"><span class="prod-badge oil">Oil</span><svg viewBox="0 0 60 60"><rect x="22" y="18" width="16" height="34" rx="5" fill="#4E9C52"/><rect x="26" y="10" width="8" height="10" rx="2" fill="#2E6E31"/></svg></div><div class="pbody"><h4>Soya Bean Oil</h4><p>A pantry essential.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="outgrowers" class="outgrower">
-  <div class="wrap">
-    <div class="grid">
-      <div class="reveal">
-        <div class="og-visual">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-            <g stroke="#3F9142" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85">
-              <path d="M80,270 C74,220 92,185 84,135"/><path d="M140,270 C148,225 128,190 136,140"/>
-              <path d="M200,270 C193,215 213,178 204,120"/><path d="M260,270 C267,222 248,188 256,138"/>
-              <path d="M320,270 C313,218 333,182 324,128"/>
-            </g>
-            <g fill="#F2B33D"><ellipse cx="84" cy="128" rx="7" ry="15"/><ellipse cx="136" cy="133" rx="7" ry="15"/><ellipse cx="204" cy="113" rx="7" ry="15"/><ellipse cx="256" cy="131" rx="7" ry="15"/><ellipse cx="324" cy="121" rx="7" ry="15"/></g>
-            <circle cx="200" cy="55" r="30" fill="#fff"/><circle cx="200" cy="55" r="30" fill="none" stroke="#E9762F" stroke-width="3"/>
-          </svg>
-        </div>
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">Outgrower Programme</span>
-        <h2>Grown by real Nigerian farmers.</h2>
-        <p>Every bag starts with a farmer. Our outgrower programme supported 1,034 members across 54 farmer groups in the 2023/24 season, providing seeds, fertilizer, and financing repaid after harvest.</p>
-        <div class="og-stats">
-          <div class="og-stat"><b>54</b><span>Farmer groups</span></div>
-          <div class="og-stat"><b>1,034</b><span>Members</span></div>
-          <div class="og-stat"><b>96.42%</b><span>Recovery rate</span></div>
-        </div>
-        <div style="margin-top:26px;"><a href="#" class="btn btn-outline" onclick="openModal(event)">Join Our Outgrower Programme</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="leadership">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Leadership &amp; Team</span>
-      <h2>The people behind the brand.</h2>
-    </div>
-    <div class="lead-grid reveal-stagger">
-      <div class="lead-card">
-        <div class="avatar">MM</div>
-        <h4>Alhaji Mohammed Abubakar Maifata</h4>
-        <div class="role">Founder &amp; Chairman</div>
-        <p>Leading Umza Group's growth from a rice-focused business into a diversified food-processing company.</p>
-      </div>
-      <div class="lead-card">
-        <div class="avatar leaf">AW</div>
-        <h4>Malam Adamu Ali Wudil</h4>
-        <div class="role">Farm Manager</div>
-        <p>Decades of experience in agricultural development, from Fadama coordination to hands-on farm management.</p>
-      </div>
-    </div>
-    <div class="reveal" style="text-align:center; margin-top:32px;">
-      <a href="leadership.html" class="btn btn-outline">Meet the Full Leadership &amp; Management Team →</a>
-    </div>
-  </div>
-</section>
-
-<section id="news" style="background:var(--cream);">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">News</span>
-      <h2>What's happening at Umza.</h2>
-    </div>
-    <div class="news-grid reveal-stagger">
-      <div class="news-card"><div class="news-visual" style="background:#F1E7CF;"><svg viewBox="0 0 42 42"><rect x="8" y="16" width="26" height="18" rx="2" fill="none" stroke="#B8862B" stroke-width="2"/><path d="M8 22h26" stroke="#B8862B" stroke-width="2"/></svg></div><div class="nbody"><div class="news-date">Company News</div><h4>New packaging rolling out nationwide</h4></div></div>
-      <div class="news-card"><div class="news-visual" style="background:#DEE9DE;"><svg viewBox="0 0 42 42"><path d="M10 34c0-9 4.5-14 11-17 6.5 3 11 8 11 17" fill="none" stroke="#3F9142" stroke-width="2"/></svg></div><div class="nbody"><div class="news-date">Outgrowers</div><h4>Meet the farmers behind Umza Gold</h4></div></div>
-      <div class="news-card"><div class="news-visual" style="background:#F6E3D9;"><svg viewBox="0 0 42 42"><ellipse cx="21" cy="26" rx="15" ry="7" fill="none" stroke="#E9762F" stroke-width="2"/><path d="M8 20a13 13 0 0 1 26 0" stroke="#E9762F" stroke-width="2" fill="none"/></svg></div><div class="nbody"><div class="news-date">Recipes</div><h4>5 ways to cook with 3 Tomato Rice</h4></div></div>
+    <div class="portrait-grid small reveal-stagger">
+      <div class="portrait-card placeholder"><div class="portrait-frame muted"><svg viewBox="0 0 100 120"><circle cx="50" cy="42" r="20" fill="#fff"/><path d="M14 120 C14 90 30 76 50 76 C70 76 86 90 86 120 Z" fill="#fff"/></svg><span class="pending-tag">Photo pending</span></div><div class="portrait-body"><h4>Milling Ops</h4><p class="role">Seat to be confirmed</p></div></div>
+      <div class="portrait-card placeholder"><div class="portrait-frame muted"><svg viewBox="0 0 100 120"><circle cx="50" cy="42" r="20" fill="#fff"/><path d="M14 120 C14 90 30 76 50 76 C70 76 86 90 86 120 Z" fill="#fff"/></svg><span class="pending-tag">Photo pending</span></div><div class="portrait-body"><h4>Quality Team</h4><p class="role">Seat to be confirmed</p></div></div>
+      <div class="portrait-card placeholder"><div class="portrait-frame muted"><svg viewBox="0 0 100 120"><circle cx="50" cy="42" r="20" fill="#fff"/><path d="M14 120 C14 90 30 76 50 76 C70 76 86 90 86 120 Z" fill="#fff"/></svg><span class="pending-tag">Photo pending</span></div><div class="portrait-body"><h4>Sales &amp; Trade</h4><p class="role">Seat to be confirmed</p></div></div>
+      <div class="portrait-card placeholder"><div class="portrait-frame muted"><svg viewBox="0 0 100 120"><circle cx="50" cy="42" r="20" fill="#fff"/><path d="M14 120 C14 90 30 76 50 76 C70 76 86 90 86 120 Z" fill="#fff"/></svg><span class="pending-tag">Photo pending</span></div><div class="portrait-body"><h4>Sustainability</h4><p class="role">Seat to be confirmed</p></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="cta-band reveal">
-    <h2>Bring Umza to your table — or your shelf.</h2>
+    <h2>Want to work with our leadership team?</h2>
     <p>Retail buyer or bulk distributor, we'd love to hear what you need.</p>
     <button class="btn" style="background:#fff; color:var(--coral-dark);" onclick="openModal()">Request a Quote</button>
   </div>
@@ -428,11 +316,11 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#" class="logo" style="color:#fff;">Umza<span>Farms</span></a>
+        <a href="index.html" class="logo" style="color:#fff;">Umza<span>Farms</span></a>
         <p style="opacity:.7; font-size:14px; max-width:300px; margin-top:14px;">Real Nigerian rice and edible oil, from Kano to your kitchen.</p>
       </div>
-      <div><h5>Company</h5><a href="#about">About</a><a href="#history">Our Story</a><a href="leadership.html">Team</a></div>
-      <div><h5>Products</h5><a href="#products">Rice</a><a href="#products">Edible Oil</a><a href="#" onclick="openModal(event)">Request a Quote</a></div>
+      <div><h5>Company</h5><a href="index.html#about">About</a><a href="index.html#history">Our Story</a><a href="leadership.html">Team</a></div>
+      <div><h5>Products</h5><a href="index.html#products">Rice</a><a href="index.html#products">Edible Oil</a><a href="#" onclick="openModal(event)">Request a Quote</a></div>
       <div><h5>Contact</h5><a href="#">KM 13, Zaria Road, Kano</a><a href="#">hello@umzafarms.com</a></div>
     </div>
     <div class="foot-bottom"><span>© 2026 Umza International Farms Limited.</span><span>Design concept — Modern Consumer-Facing direction</span></div>
@@ -463,6 +351,8 @@
     </div>
   </div>
 </div>
+
+
 
 <script>
   const navEl = document.getElementById('siteNav');
